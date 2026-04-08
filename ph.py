@@ -9,4 +9,3 @@ elif 7 < ph <= 10:
     print('Poco alcalino.')
 else:
     print('Muy alcalino.')
-        
