@@ -12,6 +12,9 @@ AZUL    = (  0,   0, 255)
 AMARILLO= (255, 255,   0)
 NARANJA = (255, 165,   0)
 MORADO  = ( 89,   0, 255)
+MARRON  = (128,  73,  34)
+CELESTE = (105, 238, 255)
+VERDEOSC= ( 11, 102,   9)
 
 # --- Inicialización de Pygame ---
 pygame.init()
@@ -22,7 +25,7 @@ ALTO  = 500
 pantalla = pygame.display.set_mode((ANCHO, ALTO))
 
 # --- Título de la ventana ---
-pygame.display.set_caption("Mis gráficos")
+pygame.display.set_caption("Casa")
 
 # --- Bucle principal ---
 hecho = False
@@ -43,27 +46,35 @@ while not hecho:
     # -------------------------------------------------------
 
     # Línea: pygame.draw.line(pantalla, color, [x1, y1], [x2, y2], grosor)
-    pygame.draw.line(pantalla, NEGRO, [50, 50], [200, 50], 3)
-
     # Rectángulo: pygame.draw.rect(pantalla, color, [x, y, ancho, alto], grosor)
     #   grosor=0 → relleno; grosor>0 → solo borde
-    pygame.draw.rect(pantalla, AZUL, [50, 100, 150, 80], 0)
-    pygame.draw.rect(pantalla, NEGRO, [50, 100, 150, 80], 2)
-
     # Elipse / círculo: pygame.draw.ellipse(pantalla, color, [x, y, ancho, alto], grosor)
-    pygame.draw.ellipse(pantalla, ROJO, [250, 100, 120, 120], 0)
-
     # Polígono: pygame.draw.polygon(pantalla, color, [[x1,y1],[x2,y2],...], grosor)
-    pygame.draw.polygon(pantalla, VERDE, [[450, 50], [550, 200], [350, 200]], 0)
-
     # Arco: pygame.draw.arc(pantalla, color, [x, y, ancho, alto], ang_inicio, ang_fin, grosor)
     #   ángulos en radianes; 0 = derecha, math.pi/2 = arriba
     import math
-    pygame.draw.arc(pantalla, NARANJA, [500, 250, 150, 100], 0, math.pi, 4)
+
+    pygame.draw.rect(pantalla, CELESTE, [0, 0, 700, 500], 0)
+    pygame.draw.rect(pantalla, VERDEOSC, [0, 300, 700, 200], 0)
+    pygame.draw.ellipse(pantalla, AMARILLO, [600, -100, 200, 200], 0)
+    pygame.draw.rect(pantalla, MORADO, [100, 128, 250, 200], 0)
+    pygame.draw.rect(pantalla, MARRON, [128, 41, 50, 80], 0)
+    pygame.draw.polygon(pantalla, AMARILLO, [[50,128],[225,50],[400,128]], 0)
+    pygame.draw.rect(pantalla, CELESTE, [128, 156, 50, 50], 0)
+    pygame.draw.rect(pantalla, MARRON, [275, 250, 50, 78], 0)
+    pygame.draw.polygon(pantalla, VERDE, [[275,328],[375,400],[425,400],[325,328]], 0)
+    pygame.draw.rect(pantalla, VERDE, [0, 380, 700, 35], 0)
+    
+
+
+
+
+
+    
 
     # Texto en pantalla
     fuente = pygame.font.SysFont("Arial", 24)
-    texto  = fuente.render("¡Hola, Pygame!", True, NEGRO)
+    texto  = fuente.render("", True, NEGRO)
     pantalla.blit(texto, [50, 350])
 
     # -------------------------------------------------------
